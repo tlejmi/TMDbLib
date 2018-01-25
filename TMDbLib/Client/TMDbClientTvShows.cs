@@ -99,6 +99,12 @@ namespace TMDbLib.Client
             if (item.AccountStates != null)
                 item.AccountStates.Id = id;
 
+            if (item.Recommendations != null)
+                item.Recommendations.Id = id;
+
+            if (item.ExternalIds != null)
+                item.ExternalIds.Id = id;
+
             return item;
         }
 
@@ -262,18 +268,6 @@ namespace TMDbLib.Client
         public async Task<SearchContainer<SearchTv>> GetTvShowRecommendationsAsync(int id, string language, int page = 0, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await GetTvShowMethod<SearchContainer<SearchTv>>(id, TvShowMethods.Recommendations, language: language, page: page, cancellationToken: cancellationToken).ConfigureAwait(false);
-        }
-
-        [Obsolete("Use GetTvShowPopularAsync")]
-        public async Task<SearchContainer<SearchTv>> GetTvShowsPopularAsync(int page = -1, string language = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return await GetTvShowPopularAsync(page, language, cancellationToken).ConfigureAwait(false);
-        }
-
-        [Obsolete("Use GetTvShowTopRatedAsync")]
-        public async Task<SearchContainer<SearchTv>> GetTvShowsTopRatedAsync(int page = -1, string language = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return await GetTvShowTopRatedAsync(page, language, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
