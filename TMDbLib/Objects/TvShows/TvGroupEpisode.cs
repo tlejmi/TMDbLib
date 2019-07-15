@@ -1,9 +1,11 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
+using TMDbLib.Objects.General;
 
-namespace TMDbLib.Objects.Search
+namespace TMDbLib.Objects.TvShows
 {
-    public class SearchTvEpisode
+    public class TvGroupEpisode
     {
         [JsonProperty("air_date")]
         public DateTime? AirDate { get; set; }
@@ -37,5 +39,8 @@ namespace TMDbLib.Objects.Search
 
         [JsonProperty("vote_count")]
         public int VoteCount { get; set; }
+
+        [JsonProperty("order")]
+        public int Order { get; set; }
     }
 }
